@@ -1,0 +1,297 @@
+.parallaxtop { 
+  /* The image used */
+  background-image: url("https://images.pexels.com/photos/2178028/pexels-photo-2178028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+
+  /* Set a specific height */
+  min-height: 100%; 
+  height:175px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallaxbottom { 
+  /* The image used */
+  background-image: url("http://images6.fanpop.com/image/photos/34500000/Green-Wallpaper-colors-34511109-1680-1050.jpg");
+
+  /* Set a specific height */
+  min-height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  text-align: center;
+}
+header {
+ position: relative;
+ text-align:center;
+}
+header>.avatar {
+  position:absolute;
+  width: 150px;
+  height: 150px;
+  top: 10px;
+  right: 1700px;
+  border-radius: 50%;
+}
+
+header>div{
+  font-size: 75px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+  color: indigo;
+  
+}
+input{
+  height: 45px;   
+}
+
+#panel{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap:wrap;
+}
+
+
+#coinCard{
+  border: indigo 2px solid;
+  width: 300px;
+  height:150px;
+  margin: 2px;
+}
+
+#nameArea{
+  font-size: 18px;
+  font-family: cursive;
+  margin: 10px;
+  font-weight: bold;
+  color: indigo;
+}
+
+#symbolArea{
+      font-size: 18px;
+      font-family: cursive;
+      margin: 10px;
+      font-weight: bold;
+      color: indigo
+}
+
+#moreInfo{
+  position: static;
+  height: 40px;
+  margin:10px;
+  color: rgb(18, 78, 36);
+  background-color: peru;
+  border: rgb(18, 78, 36) solid 1px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+#moreInfo:hover{
+  
+  background-color: coral;
+  border: rgb(18, 78, 36) solid 1px;
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  width: 60px;
+  height: 34px;
+  bottom: 85px;
+  left: 80px;
+  margin:15px;
+  
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: lightsteelblue;
+  -webkit-transition: .4s;
+  transition: .4s;
+
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(0, 0, 0);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(18, 78, 36);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  background-color: peru;
+}
+
+.cover{
+    border: white 2px solid;
+    width: 297px;
+    height:149px;
+    background-color: hsl(51, 86%, 47%);
+    opacity: 1;
+    position: absolute;
+}
+
+#currencyArea{
+  padding: 5px;
+  margin:5px;
+  width: 200px;
+  height: 65px;
+  font-family: cursive;
+  font-weight: bold;
+}
+
+#backbtn{
+  position:relative;
+  left:210px;
+  top: 75px;
+  
+}
+.img{
+  position:relative;
+  margin:5px;
+  top: 5px;
+  right:65px;
+}
+
+#modal{
+height: 100%;
+width:  100%;
+background-image: url("https://images.pexels.com/photos/2178028/pexels-photo-2178028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position:absolute;
+display:block;
+z-index: 1000;
+opacity:1;
+}
+
+
+#backbtn2{
+  float:right;
+}
+
+#innerDiv{
+  margin: auto;
+  height: 500px;
+  width:530px;
+  background-color: black;
+  color: white;
+  font-family: cursive;
+  font-weight: bold;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  text-align: center;
+  border:2px solid yellow;
+  font-size: 20px;
+}
+
+#innerDiv2{
+  height: 500px;
+  width:1750px;
+  margin: auto;
+  font-family: cursive;
+  font-weight: bold;
+  position:absolute;
+  top:0px;
+  right:0px;
+  left:0px;
+  bottom: 0px;
+  text-align: center;
+  color:maroon;
+}
+
+#chartContainer{
+  position:absolute;
+  top:150px;
+}
+
+#freezebtn{
+  position:absolute;
+  top:100px;
+  right: 850px
+}
+
+div[selectedagain="selected"]>label{
+  position:sticky;
+  float:right;
+  margin:3px;
+}
+
+div[notselected="notselected"]>label{
+  position:sticky;
+  float:right;
+  margin:3px;
+}
+
+#Top {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: orange; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#Top:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}

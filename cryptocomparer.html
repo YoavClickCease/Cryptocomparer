@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="pace.js"></script>
+    <link rel="stylesheet" href="loadingbar.css">
+    <title>CryptoComparer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+    <div class="parallaxtop">
+
+        <header>
+            <img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOQXJZbTSD1Uy9n27pQWcPFp_gwAyVMa70XSgsUdZ3KVPHaOEi5w
+                class="avatar">
+
+            <div>Cryptonite</div>
+        </header>
+
+        <nav>
+            <button class="btn btn-lg btn-primary" onclick="restart()">Home</button>
+            <button class="btn btn-lg btn-danger" onclick="graphs()">Live Reports</button>
+            <button class="btn btn-lg btn-info" onclick="about()">About</button>
+            <input type="text" placeholder="Search" id="searchTerm" autofocus>
+            <button class="btn btn-lg btn-warning" id="search" onclick="findIt()"> Search</button>
+            <hr>
+        </nav>
+        <br>
+    </div>
+    <div class="parallaxbottom">
+        <div id="panel"></div>
+    </div>
+
+
+    <script src="Coingrab.js"></script>
+    <script src="Modalstuff.js"></script>
+    <script src="graphs.js"></script>
+    <button onclick="topFunction()" id="Top" title="Go to top">Top</button>
+    <script>
+
+        window.onload = callAPIForAll;
+        var data;
+        var coincounter = 0;
+        var clicked;
+        var internalcount = 5;
+        var stop;
+
+        function restart() {
+            location.reload();
+        }
+
+        function stopIt() {
+            clearInterval(stop);
+        }
+
+        function findIt() {
+            searchterm = document.getElementById("searchTerm").value;
+            find = document.getElementsByName(searchterm);
+            find[0].scrollIntoView();
+            $("div[name=" + searchterm + "]").effect("shake");
+        }
+
+
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("Top").style.display = "block";
+            } else {
+                document.getElementById("Top").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+
+</body>
+
+</html>

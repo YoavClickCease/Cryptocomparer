@@ -36,9 +36,11 @@ function loadCoins() {
     document.getElementById("panel").innerHTML = "";
     let name;
     let symbol;
-    for (i = 0; i < data.length; i++) {
+    for (i = 0; i < 30; i++) {
         name = data[i].id;
+        name = name.toUpperCase();
         symbol = data[i].symbol;
+        symbol = symbol.toUpperCase();
 
         let coinCard = document.createElement("div");
         coinCard.id = "coinCard";
@@ -111,35 +113,120 @@ function extrainfo() {
 
 
     function getinfo() {
-
-        $.ajax({
-            url: "https://api.coingecko.com/api/v3/coins/" + chosen,
-            type: 'GET',
-            success: function (res) {
-
-                let image=document.createElement("img");
-                image.setAttribute("src",res.image.small);
-                image.setAttribute("class","img");
-                cover.appendChild(image);
-
-                let currencyArea=document.createElement("div");
-                currencyArea.id="currencyArea";
-                currencyArea.innerText=
-                `USD ($) : ${res.market_data.current_price.usd}
-                EUR (€) : ${res.market_data.current_price.eur}
-                ILS (₪) : ${res.market_data.current_price.ils}`;
-                cover.appendChild(currencyArea);
-                /*
-                add saving to local storage (check if 2 minutes have passed already or not)
-                */
-
-
-            },
-            error: function (xhr, status, error) {
-                var errorMessage = xhr.status + ': ' + xhr.statusText;
-                alert('Error - ' + errorMessage);
+        chosen=chosen.toLowerCase();
+        if (Math.floor((new Date() - currentTime)/60000) < 2){
+            let cacheReturned=localStorage.getItem(chosen);
+            if (!cacheReturned){
+                $.ajax({
+                    url: "https://api.coingecko.com/api/v3/coins/" + chosen,
+                    type: 'GET',
+                    success: function (res) {
+        
+                        let image=document.createElement("img");
+                        image.setAttribute("src",res.image.small);
+                        image.setAttribute("class","img");
+                        cover.appendChild(image);
+        
+                        let currencyArea=document.createElement("div");
+                        currencyArea.id="currencyArea";
+                        let currencyHolder={
+                            USD : res.market_data.current_price.usd,
+                            EUR : res.market_data.current_price.eur,
+                            ILS : res.market_data.current_price.ils,
+                            pic : res.image.small
+                        }
+            
+                        currencyArea.innerHTML=`
+                        USD ($) : ${currencyHolder.USD}
+                        EUR (€) : ${currencyHolder.EUR}
+                        ILS (₪) : ${currencyHolder.ILS}
+                        `;
+                        cover.appendChild(currencyArea);
+                        
+    
+                        currencyHolder=JSON.stringify(currencyHolder);
+                        let cacheSave=currencyHolder;
+                        localStorage.setItem(chosen, cacheSave);
+    
+                    },
+                    error: function (xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText;
+                        alert('Error - ' + errorMessage);
+                    }
+                })
+                currentTime =  new Date();
             }
-        })
+        else {
+            cacheReturned=JSON.parse(cacheReturned);
+            console.log(cacheReturned);
+
+            let image=document.createElement("img");
+            image.setAttribute("src",cacheReturned.pic);
+            image.setAttribute("class","img");
+            cover.appendChild(image);
+        
+            let currencyArea=document.createElement("div");
+            currencyArea.id="currencyArea";
+                        
+            
+            currencyArea.innerHTML=`
+            USD ($) : ${cacheReturned.USD}
+            EUR (€) : ${cacheReturned.EUR}
+            ILS (₪) : ${cacheReturned.ILS}
+            `;
+            cover.appendChild(currencyArea);
+              
+        }
+        }
+
+
+        else  {
+            $.ajax({
+                url: "https://api.coingecko.com/api/v3/coins/" + chosen,
+                type: 'GET',
+                success: function (res) {
+    
+                    let image=document.createElement("img");
+                    image.setAttribute("src",res.image.small);
+                    image.setAttribute("class","img");
+                    cover.appendChild(image);
+    
+                    let currencyArea=document.createElement("div");
+                    currencyArea.id="currencyArea";
+                    let currencyHolder={
+                        USD : res.market_data.current_price.usd,
+                        EUR : res.market_data.current_price.eur,
+                        ILS : res.market_data.current_price.ils,
+                        pic : res.image.small
+                    }
+        
+                    currencyArea.innerHTML=`
+                    USD ($) : ${currencyHolder.USD}
+                    EUR (€) : ${currencyHolder.EUR}
+                    ILS (₪) : ${currencyHolder.ILS}
+                    `;
+                    cover.appendChild(currencyArea);
+                    
+
+                    currencyHolder=JSON.stringify(currencyHolder);
+                    let cacheSave=currencyHolder;
+                    localStorage.setItem(chosen, cacheSave);
+
+                },
+                error: function (xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + xhr.statusText;
+                    alert('Error - ' + errorMessage);
+                }
+            })
+            currentTime =  new Date();
+        }
+
+
+
+
+
+        
+
     }
 
 }

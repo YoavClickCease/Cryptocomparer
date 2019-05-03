@@ -182,20 +182,20 @@ input:checked + .slider:before {
 #currencyArea{
   padding: 5px;
   margin:5px;
-  width: 200px;
+  width: 175px;
   height: 65px;
   font-family: cursive;
   font-weight: bold;
 }
 
 #backbtn{
-  position:relative;
+  position:absolute;
   left:210px;
   top: 75px;
   
 }
 .img{
-  position:relative;
+  position:sticky;
   margin:5px;
   top: 5px;
   right:65px;

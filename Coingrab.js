@@ -36,7 +36,7 @@ function loadCoins() {
     document.getElementById("panel").innerHTML = "";
     let name;
     let symbol;
-    for (i = 0; i < 30; i++) {
+    for (i = 0; i < data.length; i++) {
         name = data[i].id;
         name = name.toUpperCase();
         symbol = data[i].symbol;
@@ -95,12 +95,13 @@ function extrainfo() {
     //identify which "more info button " was clicked on
     var source = event.target;
     let parent = source.parentElement;
+    parent.lastChild.style.visibility ="hidden";
     let cover = document.createElement("div");
     cover.setAttribute("class", "cover");
     parent.prepend(cover);
     let chosen = parent.getAttribute("class");
-    parent.lastChild.style.visibility ="hidden";
-
+    console.log(parent.lastChild);
+    
     getinfo();
 
     let backbtn=document.createElement("button");
@@ -114,8 +115,10 @@ function extrainfo() {
 
     function getinfo() {
         chosen=chosen.toLowerCase();
+        //if less than 2 minutes have passed then draw from Local storage
         if (Math.floor((new Date() - currentTime)/60000) < 2){
             let cacheReturned=localStorage.getItem(chosen);
+            //if you draw null, it means it's a new coin, create a new entry for it
             if (!cacheReturned){
                 $.ajax({
                     url: "https://api.coingecko.com/api/v3/coins/" + chosen,
@@ -156,29 +159,30 @@ function extrainfo() {
                 })
                 currentTime =  new Date();
             }
-        else {
-            cacheReturned=JSON.parse(cacheReturned);
-            console.log(cacheReturned);
+            //if you drew values from the local storage update the panel.
+            else {
+                cacheReturned=JSON.parse(cacheReturned);
+                console.log(cacheReturned);
 
-            let image=document.createElement("img");
-            image.setAttribute("src",cacheReturned.pic);
-            image.setAttribute("class","img");
-            cover.appendChild(image);
-        
-            let currencyArea=document.createElement("div");
-            currencyArea.id="currencyArea";
-                        
+                let image=document.createElement("img");
+                image.setAttribute("src",cacheReturned.pic);
+                image.setAttribute("class","img");
+                cover.appendChild(image);
             
-            currencyArea.innerHTML=`
-            USD ($) : ${cacheReturned.USD}
-            EUR (€) : ${cacheReturned.EUR}
-            ILS (₪) : ${cacheReturned.ILS}
-            `;
-            cover.appendChild(currencyArea);
-              
+                let currencyArea=document.createElement("div");
+                currencyArea.id="currencyArea";
+                            
+                
+                currencyArea.innerHTML=`
+                USD ($) : ${cacheReturned.USD}
+                EUR (€) : ${cacheReturned.EUR}
+                ILS (₪) : ${cacheReturned.ILS}
+                `;
+                cover.appendChild(currencyArea);
+                
         }
         }
-
+        //if more than 2 minutes have passed
 
         else  {
             $.ajax({

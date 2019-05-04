@@ -104,8 +104,16 @@ function about() {
     innerDiv2.innerHTML +=`<center><img src="./myimg.jpg"><center>`;
     innerDiv2.innerHTML += `
     <h1>This crypto-currency comparer app offers real time data using Ajax requests to external APIs. <br>
-    The app uses libraries such as Jquery, CanvasJs & Bootstrap. <br>
+    The app uses libraries such:
+    <br>
+    Jquery
+    <br>
+    CanvasJs
+    <br>
+    Bootstrap<br>
+    <br>
     The app was developed by Yoav Kochman, 305497075,  <br>
+    <br>
     John Bryce Fullstack course 4578/9. </h1>`;
 }
 

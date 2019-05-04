@@ -1,6 +1,6 @@
 .parallaxtop { 
   /* The image used */
-  background-image: url("https://images.pexels.com/photos/2178028/pexels-photo-2178028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("https://cdn.pixabay.com/photo/2017/10/11/18/45/background-2842054_960_720.jpg");
 
   /* Set a specific height */
   min-height: 100%; 
@@ -15,7 +15,7 @@
 
 .parallaxbottom { 
   /* The image used */
-  background-image: url("http://images6.fanpop.com/image/photos/34500000/Green-Wallpaper-colors-34511109-1680-1050.jpg");
+  background-image: url("https://cdn.wallpapersafari.com/91/81/fJnjQm.jpg");
 
   /* Set a specific height */
   min-height: 100%; 
@@ -36,18 +36,18 @@ header {
 }
 header>.avatar {
   position:absolute;
-  width: 150px;
-  height: 150px;
-  top: 10px;
-  right: 1700px;
+  width: 125px;
+  height: 125px;
+  top: 25px;
+  right: 50px;
   border-radius: 50%;
+  border: gold 1px solid;
 }
 
 header>div{
   font-size: 75px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-weight: bold;
-  color: indigo;
+  font-family: 'Cinzel', serif;
+  color: gold;
   
 }
 input{
@@ -64,7 +64,7 @@ input{
 
 
 #coinCard{
-  border: indigo 2px solid;
+  border: darkgreen 2px solid;
   width: 300px;
   height:150px;
   margin: 2px;
@@ -72,18 +72,18 @@ input{
 
 #nameArea{
   font-size: 18px;
-  font-family: cursive;
+  font-family: 'Cinzel', serif;
   margin: 10px;
   font-weight: bold;
-  color: indigo;
+  color: gold;
 }
 
 #symbolArea{
       font-size: 18px;
-      font-family: cursive;
+      font-family: 'Cinzel', serif;
       margin: 10px;
       font-weight: bold;
-      color: indigo
+      color: gold;
 }
 
 #moreInfo{
@@ -91,7 +91,7 @@ input{
   height: 40px;
   margin:10px;
   color: rgb(18, 78, 36);
-  background-color: peru;
+  background-color: orangered;
   border: rgb(18, 78, 36) solid 1px;
   font-weight: bold;
   font-size: 17px;
@@ -99,7 +99,7 @@ input{
 
 #moreInfo:hover{
   
-  background-color: coral;
+  background-color: orange;
   border: rgb(18, 78, 36) solid 1px;
 }
 /* The switch - the box around the slider */
@@ -128,7 +128,7 @@ input{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: lightsteelblue;
+  background-color: gray;
   -webkit-transition: .4s;
   transition: .4s;
 
@@ -147,7 +147,7 @@ input{
 }
 
 input:checked + .slider {
-  background-color: rgb(18, 78, 36);
+  background-color: gold;
 }
 
 input:focus + .slider {
@@ -167,14 +167,14 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-  background-color: peru;
+  background-color: black;
 }
 
 .cover{
     border: white 2px solid;
     width: 297px;
     height:149px;
-    background-color: hsl(51, 86%, 47%);
+    background-color: lightgrey;
     opacity: 1;
     position: absolute;
 }
@@ -204,7 +204,7 @@ input:checked + .slider:before {
 #modal{
 height: 100%;
 width:  100%;
-background-image: url("https://images.pexels.com/photos/2178028/pexels-photo-2178028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+background-image: url("https://cdn.wallpapersafari.com/91/81/fJnjQm.jpg");
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat;
@@ -222,11 +222,11 @@ opacity:1;
 
 #innerDiv{
   margin: auto;
-  height: 500px;
+  height: 525px;
   width:530px;
   background-color: black;
   color: white;
-  font-family: cursive;
+  font-family: 'Cinzel', serif;
   font-weight: bold;
   position:absolute;
   top:0px;
@@ -239,10 +239,10 @@ opacity:1;
 }
 
 #innerDiv2{
-  height: 500px;
+  height: 800px;
   width:1750px;
   margin: auto;
-  font-family: cursive;
+  font-family: 'Cinzel', serif;
   font-weight: bold;
   position:absolute;
   top:0px;
@@ -250,7 +250,7 @@ opacity:1;
   left:0px;
   bottom: 0px;
   text-align: center;
-  color:maroon;
+  color:gold;
 }
 
 #chartContainer{
@@ -279,12 +279,12 @@ div[notselected="notselected"]>label{
 #Top {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
+  bottom: 10px; /* Place the button at the bottom of the page */
+  right: 15px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
   border: none; /* Remove borders */
   outline: none; /* Remove outline */
-  background-color: orange; /* Set a background color */
+  background-color: green; /* Set a background color */
   color: white; /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
